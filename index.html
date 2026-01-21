@@ -1,352 +1,343 @@
 <!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Lato", sans-serif;
-  }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raphael Angelim | Front End Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0057ff;
+            --secondary: #a855f7;
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-  body,
-  html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-  }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-  /* Create a Parallax Effect */
-  .bgimg-1,
-  .bgimg-2,
-  .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* First image (Logo. Full height) */
-  .bgimg-1 {
-    background-image: url("images/paris.jpg");
-    min-height: 100%;
-  }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
 
-  /* Second image (Portfolio) */
-  .bgimg-2 {
-    background-image: url("images/coffee.jpg");
-    min-height: 400px;
-  }
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  /* Third image (Contact) */
-  .bgimg-3 {
-    background-image: url("images/photographer.jpg");
-    min-height: 400px;
-  }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
 
-  .w3-wide {
-    letter-spacing: 10px;
-  }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-  .w3-hover-opacity {
-    cursor: pointer;
-  }
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(circle at top right, rgba(0, 87, 255, 0.15), transparent);
+        }
 
-  /* Turn off parallax scrolling for tablets and phones */
-  @media only screen and (max-device-width: 1024px) {
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
 
-    .bgimg-1,
-    .bgimg-2,
-    .bgimg-3 {
-      background-attachment: scroll;
-    }
-  }
-</style>
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
 
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 87, 255, 0.3);
+        }
+
+        /* General Sections */
+        section {
+            padding: 5rem 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        /* Case Study Component Demo */
+        .ad-demo-box {
+            width: 100%;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed var(--text-muted);
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Skills Tags */
+        .tags {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: rgba(0, 87, 255, 0.2);
+            color: #8fb6ff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 87, 255, 0.3);
+        }
+
+        /* Workflow List */
+        .workflow-list {
+            list-style: none;
+        }
+
+        .workflow-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .workflow-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Why Fit Section */
+        .fit-container {
+            text-align: center;
+            background: linear-gradient(135deg, var(--card-bg), rgba(99, 102, 241, 0.05));
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 4rem 5%; }
+            h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
 <body>
 
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
-        onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="w3-bar-item w3-button">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-        <i class="fa fa-search"></i>
-      </a>
-    </div>
-
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-    </div>
-  </div>
-
-  <!-- First Parallax Image with Logo Text -->
-  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-    <div class="w3-display-middle" style="white-space:nowrap;">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">WELCOME <span
-          class="w3-hide-small">TO</span> MY PORTFOLIO</span>
-    </div>
-  </div>
-
-  <!-- Container (About Section) -->
-  <div class="w3-content w3-container w3-padding-64" id="about">
-    <h3 class="w3-center">ABOUT ME</h3>
-    <p class="w3-center"><em>I love creation</em></p>
-    <p>My creation pathway started since I can remember, when I was really little I started modeling with my twin
-      brother where from there we move on to the stages which dragged both of us into acting world. It`s been just like
-      this ever since, later on, I was on TV (commercials) where I got to be on set and always watching people behind
-      the cameras shouting action. From that point, I decide to go to Canada to study film, but before that, beginning I
-      start University back in Brazil into MEdia communication, and now I am currently taking New Media Design where I
-      find it all coming together from tbeginning.</p>
-    <div class="w3-row">
-      <div class="w3-col m6 w3-center w3-padding-large">
-        <p><b><i class="fa fa-user w3-margin-right"></i>RAPHAEL ANGELIM</b></p><br>
-        <img src="images/self.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me"
-          width="500" height="333">
-      </div>
-
-      <!-- Hide this text on small devices -->
-      <div class="w3-col m6 w3-hide-small w3-padding-large">
-        <p>Welcome to my website. I am Raphael Angelim, Filmmaker, Photographer and Web Designer where putting all
-          together and adding some coincidence that makes me and my twin brother the unique creators you have never
-          seen. In this portfolio, you will get to experience a doubled brain creativity.</p>
-      </div>
-    </div>
-    <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
-    <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
-    </div>
-    <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
-    </div>
-    <p class="w3-wide"><i class="fa fa-photo"></i>Filmmaking</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
-    </div>
-  </div>
-
-  <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-    <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">14+</span><br>
-      Partners
-    </div>
-    <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">55+</span><br>
-      Projects Done
-    </div>
-    <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">89+</span><br>
-      Happy Clients
-    </div>
-    <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">150+</span><br>
-      Meetings
-    </div>
-  </div>
-
-  <!-- Second Parallax Image with Portfolio Text -->
-  <div class="bgimg-2 w3-display-container w3-opacity-min">
-    <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
-    </div>
-  </div>
-
-  <!-- Container (Portfolio Section) -->
-  <div class="w3-content w3-container w3-padding-64" id="portfolio">
-    <h3 class="w3-center">MY WORK</h3>
-    <p class="w3-center"><em>Here are some of my latest work as a creater<br> Click on the images to make them
-        bigger</em></p><br>
-
-    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-    <div class="w3-row-padding w3-center">
-      <div class="w3-col m3">
-        <img src="images/photo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Photo">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/animation.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-          alt="Animation">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/director.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-          alt="Director">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/dai.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Dai">
-      </div>
-    </div>
-
-    <div class="w3-row-padding w3-center w3-section">
-      <div class="w3-col m3">
-        <img src="images/photographermodel.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-          alt="Photographer">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/webDesign.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-          alt="WebDesign">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/onset.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="On Set">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/friends.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-          alt="Friendship">
-      </div>
-      <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
-    </div>
-  </div>
-
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-    <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
-        class="fa fa-remove"></i></span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption" class="w3-opacity w3-large"></p>
-    </div>
-  </div>
-
-  <!-- Third Parallax Image with Portfolio Text -->
-  <div class="bgimg-3 w3-display-container w3-opacity-min">
-    <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-    </div>
-  </div>
-
-  <!-- Container (Contact Section) -->
-  <div class="w3-content w3-container w3-padding-64" id="contact">
-    <h3 class="w3-center">CONTACT INFORMATION</h3>
-    <p class="w3-center"><em>GO AHEAD AND DOWNLOAD MY RESUME</em></p>
-
-    <div class="w3-row w3-padding-32 w3-section">
-      <div class="w3-col m4 w3-container">
-        <!-- Add Resume to be downloaded-->
-        <a href="www.w3.org"><img src="images/resume.png" alt="resume" title="Resume"></a>
-      </div>
-      <div class="w3-col m8 w3-panel">
-        <div class="w3-large w3-margin-bottom">
-          <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Winipeg, MB<br>
-          <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +1 204-430-3427<br>
-          <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
-          rafael@realizeintercambio.com<br>
+    <nav>
+        <div class="logo">RAPHAEL.DESIGN</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#case-study">Case Study</a>
+            <a href="#workflow">Workflow</a>
         </div>
-        <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-        <form action="/action_page.php" target="_blank">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+    </nav>
+
+    <header>
+        <h1>Raphael <span style="color:var(--primary)">Angelim.</span></h1>
+        <p class="hero-subtitle">
+            Front End Designer focused on scalable systems, performance, and data-driven UX.
+            Building at the intersection of design engineering and layout stability.
+        </p>
+        <div class="tags" style="justify-content: center; margin-bottom: 2rem;">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Design Systems</span>
+            <span class="tag">Performance</span>
+            <span class="tag">Architecture</span>
+        </div>
+        <a href="#case-study" class="btn btn-primary">View Case Study</a>
+    </header>
+
+    <section id="about">
+        <div class="fit-container">
+            <h2>About My Approach</h2>
+            <p style="max-width: 800px; margin: 0 auto 1.5rem; font-size: 1.1rem;">
+                I work at the intersection of design and front end engineering, focusing on reusable components, layout stability, and performance-oriented decisions.
+            </p>
+            <p style="max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+                My experience aligns with high-traffic content platforms where success is measured by CTR, scroll depth, revenue impact, and Core Web Vitals.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Core Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Technical Foundations</h3>
+                <div class="tags">
+                    <span class="tag">HTML Structure</span>
+                    <span class="tag">CSS Architecture</span>
+                    <span class="tag">Component Reuse</span>
+                    <span class="tag">Analytics Friendly Markup</span>
+                </div>
             </div>
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+            <div class="card">
+                <h3>Performance & UX</h3>
+                <div class="tags">
+                    <span class="tag">CLS Prevention</span>
+                    <span class="tag">LCP Optimization</span>
+                    <span class="tag">Core Web Vitals</span>
+                    <span class="tag">Design Systems</span>
+                </div>
             </div>
-          </div>
-          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-          <button class="w3-button w3-black w3-right w3-section" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-        class="w3-hover-text-green">w3.css</a></p>
-  </footer>
+    <section id="case-study">
+        <h2>Case Study</h2>
+        <div class="card" style="max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem;">
+                <h3>Injected Ad Component</h3>
+                <span class="tag" style="background: var(--primary); color: white;">Performance Optimization</span>
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-muted);">
+                <strong>Problem:</strong> Injecting an ad unit into an existing article page without harming UX, performance, or scroll behavior.
+            </p>
+            
+            <div class="ad-demo-box">
+                <div>
+                    <strong style="color: var(--text);">Injected Ad Component</strong><br>
+                    <small>Fixed height reserved to avoid CLS (Layout Shift)</small>
+                </div>
+            </div>
 
-  <!-- Add Google Maps -->
-  <script>
-    function myMap() {
-      myCenter = new google.maps.LatLng(41.878114, -87.629798);
-      var mapOptions = {
-        center: myCenter,
-        zoom: 12,
-        scrollwheel: false,
-        draggable: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+            <p><strong>Approach:</strong> The component is injected at a logical content break with reserved height to ensure layout stability during load.</p>
+            <p style="margin-top: 1rem; color: #4ade80;"><strong>Results:</strong> Stable layout, predictable tracking, and improved viewability without impacting LCP.</p>
+        </div>
+    </section>
 
-      var marker = new google.maps.Marker({
-        position: myCenter,
-      });
-      marker.setMap(map);
-    }
+    <section id="workflow">
+        <h2>Workflow & Methodology</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Analysis & Strategy</h3>
+                <ul class="workflow-list">
+                    <li>Analyze existing page structure and metrics</li>
+                    <li>Identify logical content breaks</li>
+                    <li>Coordinate with analytics for tracking</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Implementation</h3>
+                <ul class="workflow-list">
+                    <li>Design using design system tokens</li>
+                    <li>Implement semantic HTML and constrained layout</li>
+                    <li>Validate CLS, LCP, and responsiveness</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
+    <section id="why-me">
+        <div class="fit-container" style="background: rgba(99, 102, 241, 0.1); border-color: var(--primary);">
+            <h2>Why I Fit This Role</h2>
+            <p style="margin-bottom: 1.5rem;">I am comfortable working in performance-driven environments where aesthetics serve business goals.</p>
+            <p>I enjoy building systems rather than one-off pages and I am used to defending decisions with <strong>data rather than taste.</strong></p>
+        </div>
+    </section>
 
-    // Change style of navbar on scroll
-    window.onscroll = function () {
-      myFunction()
-    };
-
-    function myFunction() {
-      var navbar = document.getElementById("myNavbar");
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-      } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-      }
-    }
-
-    // Used to toggle the menu on small screens when clicking on the menu button
-    function toggleFunction() {
-      var x = document.getElementById("navDemo");
-      if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-      } else {
-        x.className = x.className.replace(" w3-show", "");
-      }
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap">
-  </script>
-  <!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+    <footer>
+        <p>&copy; 2026 Raphael Angelim. Portfolio built as a single, performance-optimized HTML file.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem;">FOCUSED ON REAL-WORLD FRONT END DESIGN FOR HIGH-TRAFFIC PLATFORMS</p>
+    </footer>
 
 </body>
-
 </html>
