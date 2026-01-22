@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raphael Angelim | Front End Designer Portfolio</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0057ff;
@@ -14,7 +16,7 @@
             --text-muted: #94a3b8;
             --card-bg: rgba(30, 41, 59, 0.7);
             --border: rgba(255, 255, 255, 0.1);
-            --code-bg: #000000;
+            --code-bg: #020617;
         }
 
         * {
@@ -29,26 +31,24 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem;
+            padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
-            z-index: 1000;
             border-bottom: 1px solid var(--border);
+            z-index: 1000;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -59,12 +59,8 @@
             text-decoration: none;
             margin-left: 2rem;
             font-size: 0.9rem;
-            transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Hero Section */
         header {
             height: 100vh;
             display: flex;
@@ -83,20 +79,19 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 750px;
+            max-width: 720px;
             margin-bottom: 2.5rem;
         }
 
-        /* Buttons & Tags */
         .btn {
-            padding: 0.8rem 2.2rem;
+            padding: 0.75rem 2.2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s;
             display: inline-block;
+            transition: transform 0.2s ease;
         }
 
         .btn-primary {
@@ -106,36 +101,12 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 87, 255, 0.3);
         }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            background: rgba(0, 87, 255, 0.15);
-            color: #8fb6ff;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 87, 255, 0.3);
-        }
-
-        /* Sections */
         section {
             padding: 6rem 10%;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
         }
 
         .card {
@@ -143,10 +114,8 @@
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 2.5rem;
-            margin-bottom: 2rem;
         }
 
-        /* Case Study Specifics */
         .case-study-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -158,19 +127,13 @@
             width: 100%;
             border-radius: 16px;
             overflow: hidden;
-            background: #1e293b;
+            background: #020617;
             border: 1px solid var(--border);
         }
 
-        .visual-placeholder {
-            aspect-ratio: 16/10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .visual-container img {
+            width: 100%;
+            display: block;
         }
 
         pre {
@@ -179,22 +142,17 @@
             border-radius: 12px;
             overflow-x: auto;
             border: 1px solid var(--border);
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #d1d5db;
         }
 
-        .workflow-list { list-style: none; }
-        .workflow-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        .workflow-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
+        .tag {
+            font-size: 0.75rem;
+            background: rgba(0, 87, 255, 0.15);
+            color: #8fb6ff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 87, 255, 0.3);
         }
 
         footer {
@@ -204,142 +162,139 @@
             font-size: 0.85rem;
             border-top: 1px solid var(--border);
         }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            section { padding: 4rem 5%; }
-        }
     </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">RAPHAEL.DESIGN</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#case-study">Case Study</a>
-            <a href="#workflow">Workflow</a>
-        </div>
-    </nav>
+<nav>
+    <div class="logo">RAPHAEL.DESIGN</div>
+    <div class="nav-links">
+        <a href="#case-study">Case Study</a>
+        <a href="#workflow">Workflow</a>
+    </div>
+</nav>
 
-    <header>
-        <h1>Raphael <span style="color:var(--primary)">Angelim.</span></h1>
-        <p class="hero-subtitle">
-            Front End Designer focused on scalable systems, performance, and data-driven UX. 
-            I bridge the gap between design vision and layout stability.
+<header>
+    <h1>Raphael <span style="color: var(--primary)">Angelim</span></h1>
+    <p class="hero-subtitle">
+        Front End Designer focused on scalable interfaces, performance, and conversion driven UX.
+        Strong experience building interactive components for real business use.
+    </p>
+    <a href="#case-study" class="btn btn-primary">View Case Study</a>
+</header>
+
+<section id="case-study">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Conversion Focused Case Study</h2>
+
+    <div class="card">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+            <h3>Interactive Multi Video Campaign Slider</h3>
+            <div>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">UX Logic</span>
+            </div>
+        </div>
+
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">
+            Objective was to promote a Winter Camp program through an interactive video component
+            embedded in high traffic partner pages while keeping performance and UX intact.
         </p>
-        <a href="#case-study" class="btn btn-primary">See Technical Highlight</a>
-    </header>
 
-    <section id="about">
-        <div class="card" style="text-align: center; border-color: rgba(99, 102, 241, 0.2);">
-            <h2 style="margin-bottom: 1.5rem;">Systematic Thinking</h2>
-            <p style="max-width: 800px; margin: 0 auto 1.5rem;">
-                I work at the intersection of design and front-end engineering, focusing on reusable components and performance-oriented decisions. 
-                Success is measured by CTR, scroll depth, and **Core Web Vitals**.
-            </p>
-            <div class="tags" style="justify-content: center;">
-                <span class="tag">CLS Prevention</span>
-                <span class="tag">LCP Optimization</span>
-                <span class="tag">Design Systems</span>
-                <span class="tag">Semantic HTML</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="case-study">
-        <h2>Technical Highlight</h2>
-        <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-                <h3>The Injected Ad Component</h3>
-                <span class="tag" style="background: var(--primary); color: white; border: none;">Zero CLS Strategy</span>
-            </div>
-            
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">
-                <strong>The Challenge:</strong> Injecting dynamic third-party ads into article streams without causing frustrating content jumps (Layout Shifts) or slowing down the Main Thread.
-            </p>
-
-            <div class="case-study-grid">
-                <div>
-                    <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 800; margin-bottom: 1rem;">Visual Solution</p>
-                    <div class="visual-container">
-                        <div class="visual-placeholder">
-                            <p>
-                                <strong>[ACTION: DROP IMAGE HERE]</strong><br><br>
-                                Recommended: A GIF or screenshot of the <br>skeleton placeholder in the layout.
-                            </p>
-                        </div>
-                    </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Result:</strong> Created a "slot-based" system that reserves exact vertical space before the ad loads, ensuring a smooth reading experience.
-                    </p>
-                </div>
-
-                <div>
-                    <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 800; margin-bottom: 1rem;">Code Implementation</p>
-                    
-                    <pre>
-<code>/* Reserve space to prevent CLS */
-.ad-slot {
-  min-height: 250px;
-  background: var(--color-bg-offset);
-  display: grid;
-  place-items: center;
-  content-visibility: auto;
-  contain-intrinsic-size: 250px;
-}
-
-/* Skeleton placeholder UI */
-.ad-slot:empty::after {
-  content: 'ADVERTISEMENT';
-  font-size: 10px;
-  opacity: 0.5;
-}</code></pre>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Approach:</strong> Utilized <code>min-height</code> and <code>content-visibility</code> to optimize browser rendering and prevent re-paints.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="workflow">
-        <h2>My Workflow</h2>
         <div class="case-study-grid">
-            <div class="card">
-                <h3 style="margin-bottom: 1rem;">1. Analysis</h3>
-                <ul class="workflow-list">
-                    <li>Identify logical content breaks</li>
-                    <li>Analyze existing Core Web Vitals</li>
-                    <li>Coordinate tracking requirements</li>
-                </ul>
+            <div>
+                <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 800; margin-bottom: 1rem;">
+                    Visual Implementation
+                </p>
+                <div class="visual-container">
+                    <img src="winter-slidder.png" alt="Campaign slider implementation">
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                    The component uses auto playing muted videos with clear call to action,
+                    reducing friction between interest and lead generation.
+                </p>
             </div>
-            <div class="card">
-                <h3 style="margin-bottom: 1rem;">2. Execution</h3>
-                <ul class="workflow-list">
-                    <li>Design with system tokens</li>
-                    <li>Implement semantic structure</li>
-                    <li>Validate layout stability</li>
-                </ul>
+
+            <div>
+                <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 800; margin-bottom: 1rem;">
+                    Core Logic Example
+                </p>
+                <pre>
+function playVideo() {
+    videos.forEach(v => {
+        v.pause();
+        v.currentTime = 0;
+    });
+
+    const activeVideo = videos[currentIndex];
+    activeVideo.play().catch(() => {});
+
+    activeVideo.onended = () => {
+        setTimeout(() => move(1), 400);
+    };
+}
+                </pre>
+
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                    Video lifecycle controls the slider behavior,
+                    creating a smooth and intentional flow without user confusion.
+                </p>
             </div>
         </div>
-    </section>
 
-    <section id="contact">
-        <div class="card" style="text-align: center; background: linear-gradient(145deg, var(--card-bg), rgba(0,87,255,0.05));">
-            <h2>Why I Fit This Role</h2>
-            <p style="max-width: 600px; margin: 0 auto 2rem;">
-                I thrive in performance-driven environments where design serves business goals. 
-                I build systems that are beautiful, scalable, and measurable.
+        <div style="margin-top: 3rem; text-align: center;">
+            <a href="https://github.com/raphaelangelim/portfolio/blob/main/README.md"
+               target="_blank"
+               class="btn btn-primary"
+               style="margin-right: 1rem;">
+                View HTML and CSS Code
+            </a>
+
+            <a href="https://www.realizeintercambio.com.br/banner-test"
+               target="_blank"
+               class="btn"
+               style="border: 1px solid var(--border); color: var(--text);">
+                View Live Demo
+            </a>
+
+            <p style="margin-top: 1.2rem; font-size: 0.85rem; color: var(--text-muted);">
+                Semantic HTML, modern CSS architecture, responsive layout, and performance conscious implementation.
             </p>
-            <a href="mailto:raphael@example.com" class="btn btn-primary">Get In Touch</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Raphael Angelim | Front End Designer</p>
-        <p style="font-size: 0.7rem; margin-top: 0.5rem; text-transform: uppercase; color: var(--text-muted);">Built for performance & stability</p>
-    </footer>
+<section id="workflow">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Workflow & Thinking</h2>
+
+    <div class="case-study-grid">
+        <div class="card">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">UX First Approach</h4>
+            <p style="font-size: 0.9rem;">
+                Designed interactions to respect user attention while maximizing clarity and conversion.
+            </p>
+        </div>
+
+        <div class="card">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">HTML & CSS Craft</h4>
+            <p style="font-size: 0.9rem;">
+                Clean semantic structure, reusable classes, scalable layout patterns.
+            </p>
+        </div>
+
+        <div class="card">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">Performance Awareness</h4>
+            <p style="font-size: 0.9rem;">
+                Optimized media loading behavior and avoided unnecessary JavaScript overhead.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Raphael Angelim. Portfolio built as a single high performance HTML file.
+</footer>
 
 </body>
 </html>
