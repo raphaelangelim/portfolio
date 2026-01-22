@@ -1,5 +1,6 @@
 # portfolio
 Welcome to Raphael's Portfolio
+
 <div id="wp-video-ad-wrapper" style="position: relative; margin: 20px auto; max-width: 900px;">
     <div id="v-close-btn" aria-label="Close Ad" role="button" tabindex="0">×</div>
 
